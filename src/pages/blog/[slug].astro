@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<BaseLayout>
+  <Fragment slot="head">
+    <title>{entry.data.title} - 博客</title>
+  </Fragment>
+  <article class="article">
+    <h1>{entry.data.title}</h1>
+    <p class="meta">
+      <time datetime={entry.data.pubDate.toISOString()}>
+        {entry.data.pubDate.toLocaleDateString('zh-CN')}
+      </time>
+      {entry.data.tags?.length ? ` · ${entry.data.tags.join(', ')}` : ''}
+    </p>
+    <div class="body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .article {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .article h1 {
+    margin-bottom: var(--space-xs);
+  }
+  .meta {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-md);
+  }
+  .body {
+    margin-top: var(--space-md);
+  }
+  .body :global(p) {
+    margin-bottom: var(--space-sm);
+  }
+</style>

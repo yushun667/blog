@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const works = await getCollection('works');
+  return works.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<BaseLayout>
+  <Fragment slot="head">
+    <title>{entry.data.title} - 作品</title>
+  </Fragment>
+  <article class="article">
+    <h1>{entry.data.title}</h1>
+    {entry.data.description && <p class="desc">{entry.data.description}</p>}
+    <div class="body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .article {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .article h1 {
+    margin-bottom: var(--space-sm);
+  }
+  .desc {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+  .body {
+    margin-top: var(--space-md);
+  }
+</style>

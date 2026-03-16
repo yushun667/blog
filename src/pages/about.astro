@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout>
+  <Fragment slot="head">
+    <title>关于 - 个人网站</title>
+  </Fragment>
+  <div class="about">
+    <h1>关于</h1>
+    <p>这里可以写个人简介与联系方式。</p>
+  </div>
+</BaseLayout>
+<style>
+  .about {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .about h1 {
+    margin-bottom: var(--space-md);
+  }
+</style>
