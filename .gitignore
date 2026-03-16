@@ -1,8 +1,6 @@
-dist/
-node_modules/
+node_modules
+dist
+.DS_Store
+*.log
 .env
 .env.*
-.superpowers/
-.astro/
-*.log
-.DS_Store
