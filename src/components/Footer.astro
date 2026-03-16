@@ -1,0 +1,28 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<footer class="footer">
+  <p class="footer-text">
+    <a href={base}>首页</a> · <a href={`${base}about/`}>关于</a>
+  </p>
+  <p class="footer-copy">© 2025 个人网站</p>
+</footer>
+<style>
+  .footer {
+    margin-top: auto;
+    padding: var(--space-lg) var(--space-md);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+  .footer-text {
+    margin-bottom: var(--space-xs);
+  }
+  .footer-text a {
+    color: var(--color-text-muted);
+  }
+  .footer-text a:hover {
+    color: var(--color-accent);
+  }
+</style>

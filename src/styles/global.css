@@ -1,0 +1,67 @@
+/* 有辨识度主题：深色底 + 琥珀强调，Syne 标题 + Source Serif 正文 */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+:root {
+  /* 主色与背景 */
+  --color-bg: #0c0c0b;
+  --color-bg-elevated: #161614;
+  --color-border: #2a2a26;
+  --color-text: #e6e4e0;
+  --color-text-muted: #9a968f;
+  /* 强调色：琥珀，避免通用紫/蓝 */
+  --color-accent: #e4a853;
+  --color-accent-hover: #eebb6a;
+  --color-accent-muted: rgba(228, 168, 83, 0.25);
+  /* 字体 */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  /* 间距与尺寸 */
+  --space-unit: 0.25rem;
+  --space-xs: calc(var(--space-unit) * 2);
+  --space-sm: calc(var(--space-unit) * 4);
+  --space-md: calc(var(--space-unit) * 6);
+  --space-lg: calc(var(--space-unit) * 10);
+  --space-xl: calc(var(--space-unit) * 16);
+  --text-base: 1.0625rem;
+  --line-body: 1.65;
+  --line-heading: 1.25;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--line-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--line-heading);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}

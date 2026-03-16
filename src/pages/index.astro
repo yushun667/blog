@@ -1,14 +1,12 @@
 ---
-// 首页占位，后续替换为三块并列布局
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<BaseLayout>
+  <Fragment slot="head">
     <title>个人网站</title>
-  </head>
-  <body>
-    <h1>个人网站</h1>
-    <p>项目展示 · 作品集 · 技术博客</p>
-  </body>
-</html>
+  </Fragment>
+  <div style="padding: var(--space-xl) var(--space-md); max-width: 48rem; margin: 0 auto;">
+    <h1 style="margin-bottom: var(--space-sm);">个人网站</h1>
+    <p style="color: var(--color-text-muted);">项目展示 · 作品集 · 技术博客</p>
+  </div>
+</BaseLayout>
