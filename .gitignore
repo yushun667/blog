@@ -3,5 +3,6 @@ node_modules/
 .env
 .env.*
 .superpowers/
+.astro/
 *.log
 .DS_Store
