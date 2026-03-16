@@ -21,22 +21,22 @@ const projects = (await getCollection('projects')).sort((a, b) => (a.data.order 
 </BaseLayout>
 <style>
   .page {
-    padding: var(--space-2xl) var(--space-lg);
-    max-width: 56rem;
+    padding: var(--space-xl) var(--space-md);
+    max-width: var(--content-max);
     margin: 0 auto;
   }
   .page-title {
     font-size: var(--text-h1);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     padding-bottom: var(--space-sm);
     border-bottom: 2px solid var(--color-accent-line);
     display: inline-block;
   }
   .card-grid {
     display: grid;
-    gap: var(--space-md);
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   }
 </style>

@@ -44,26 +44,26 @@ const blogPosts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.va
 </BaseLayout>
 <style>
   .home {
-    padding: var(--space-2xl) var(--space-lg);
-    max-width: 56rem;
+    padding: var(--space-xl) var(--space-md);
+    max-width: var(--content-max);
     margin: 0 auto;
   }
   .hero {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     animation: fadeInUp 0.6s ease both;
   }
   .hero-title {
-    font-size: clamp(2.25rem, 5vw, var(--text-display));
+    font-size: clamp(2rem, 4.5vw, var(--text-display));
     font-weight: 800;
     letter-spacing: -0.03em;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     color: var(--color-text);
   }
   .hero-tagline {
     font-size: var(--text-body);
     color: var(--color-text-muted);
     letter-spacing: 0.04em;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
   .hero-line {
     width: 3rem;
@@ -74,11 +74,15 @@ const blogPosts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.va
   }
   .card-grid {
     display: grid;
-    gap: var(--space-md);
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   }
   .section-block {
     animation: fadeInUp 0.55s ease both;
+    margin-bottom: var(--space-xl);
+  }
+  .section-block:last-of-type {
+    margin-bottom: 0;
   }
   .section-block:nth-of-type(1) { animation-delay: 0.08s; }
   .section-block:nth-of-type(2) { animation-delay: 0.18s; }

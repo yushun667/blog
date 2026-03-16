@@ -32,8 +32,8 @@ const { Content } = await entry.render();
 </BaseLayout>
 <style>
   .article {
-    padding: var(--space-2xl) var(--space-lg);
-    max-width: 42rem;
+    padding: var(--space-xl) var(--space-md);
+    max-width: var(--content-narrow);
     margin: 0 auto;
   }
   .article-title {
@@ -48,7 +48,7 @@ const { Content } = await entry.render();
   .meta {
     color: var(--color-text-muted);
     font-size: var(--text-small);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
   .body {
     margin-top: var(--space-md);
