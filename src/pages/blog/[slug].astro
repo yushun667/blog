@@ -18,36 +18,65 @@ const { Content } = await entry.render();
     <title>{entry.data.title} - 博客</title>
   </Fragment>
   <article class="article">
-    <h1>{entry.data.title}</h1>
+    <h1 class="article-title">{entry.data.title}</h1>
     <p class="meta">
       <time datetime={entry.data.pubDate.toISOString()}>
         {entry.data.pubDate.toLocaleDateString('zh-CN')}
       </time>
-      {entry.data.tags?.length ? ` · ${entry.data.tags.join(', ')}` : ''}
+      {entry.data.tags?.length ? <span class="meta-tags"> · {entry.data.tags.join(', ')}</span> : ''}
     </p>
-    <div class="body">
+    <div class="body prose">
       <Content />
     </div>
   </article>
 </BaseLayout>
 <style>
   .article {
-    padding: var(--space-xl) var(--space-md);
-    max-width: 48rem;
+    padding: var(--space-2xl) var(--space-lg);
+    max-width: 42rem;
     margin: 0 auto;
   }
-  .article h1 {
-    margin-bottom: var(--space-xs);
+  .article-title {
+    font-size: var(--text-h1);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-accent-line);
+    display: inline-block;
   }
   .meta {
     color: var(--color-text-muted);
-    font-size: 0.9375rem;
-    margin-bottom: var(--space-md);
+    font-size: var(--text-small);
+    margin-bottom: var(--space-lg);
   }
   .body {
     margin-top: var(--space-md);
   }
-  .body :global(p) {
+  .prose :global(p) {
+    margin-bottom: var(--space-md);
+    line-height: var(--line-body);
+  }
+  .prose :global(h2) {
+    font-size: var(--text-h3);
+    margin-top: var(--space-lg);
     margin-bottom: var(--space-sm);
+  }
+  .prose :global(h3) {
+    font-size: var(--text-body);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+  .prose :global(ul), .prose :global(ol) {
+    margin-bottom: var(--space-md);
+    padding-left: 1.5em;
+  }
+  .prose :global(li) {
+    margin-bottom: var(--space-xs);
+  }
+  .prose :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 </style>

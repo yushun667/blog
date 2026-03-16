@@ -11,7 +11,7 @@ const works = (await getCollection('works')).sort((a, b) => (a.data.order ?? 99)
     <title>作品 - 个人网站</title>
   </Fragment>
   <div class="page">
-    <h1>作品</h1>
+    <h1 class="page-title">作品</h1>
     <div class="card-grid">
       {works.map((entry) => (
         <Card title={entry.data.title} description={entry.data.description} href={`${base}works/${entry.id}/`} />
@@ -21,16 +21,22 @@ const works = (await getCollection('works')).sort((a, b) => (a.data.order ?? 99)
 </BaseLayout>
 <style>
   .page {
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-2xl) var(--space-lg);
     max-width: 56rem;
     margin: 0 auto;
   }
-  .page h1 {
-    margin-bottom: var(--space-md);
+  .page-title {
+    font-size: var(--text-h1);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-accent-line);
+    display: inline-block;
   }
   .card-grid {
     display: grid;
     gap: var(--space-md);
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   }
 </style>

@@ -5,30 +5,45 @@ interface Props {
   ctaText?: string;
 }
 const { title, ctaLink, ctaText } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 <section class="section-block">
   <h2 class="section-title">{title}</h2>
-  <slot />
+  <div class="section-content">
+    <slot />
+  </div>
   {ctaLink && ctaText && (
     <p class="section-cta">
-      <a href={ctaLink}>{ctaText} →</a>
+      <a href={ctaLink} class="cta-link">{ctaText} →</a>
     </p>
   )}
 </section>
 <style>
   .section-block {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
   }
   .section-title {
-    font-size: 1.5rem;
+    font-size: var(--text-h2);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     margin-bottom: var(--space-md);
-    color: var(--color-accent);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-accent-line);
+    color: var(--color-text);
+    display: inline-block;
+  }
+  .section-content {
+    margin-bottom: var(--space-sm);
   }
   .section-cta {
-    margin-top: var(--space-sm);
+    margin-top: var(--space-md);
   }
-  .section-cta a {
+  .cta-link {
+    font-family: var(--font-display);
+    font-size: var(--text-small);
+    font-weight: 600;
     color: var(--color-accent);
+  }
+  .cta-link:hover {
+    color: var(--color-accent-hover);
   }
 </style>

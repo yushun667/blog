@@ -11,10 +11,26 @@ import Footer from '../components/Footer.astro';
     <slot name="head" />
   </head>
   <body>
+    <div class="top-accent" aria-hidden="true"></div>
     <Header />
-    <main>
+    <main class="main">
       <slot />
     </main>
     <Footer />
   </body>
+  <style is:global>
+    .top-accent {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 50%, var(--color-accent) 100%);
+      z-index: 11;
+    }
+    .main {
+      min-height: calc(100vh - 12rem);
+      padding-bottom: var(--space-2xl);
+    }
+  </style>
 </html>
