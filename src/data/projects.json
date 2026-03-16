@@ -1,0 +1,10 @@
+[
+  {
+    "id": "sample",
+    "title": "示例项目",
+    "summary": "这是一个示例项目简介",
+    "tech": ["React", "Vite"],
+    "link": "https://github.com",
+    "date": "2025-03-16"
+  }
+]

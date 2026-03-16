@@ -1,10 +1,13 @@
 /**
- * 内容层：博客列表与单篇由 scripts/generate-posts.js 生成的 posts.json 提供；
- * 项目/作品由 content 下 JSON 或 Markdown 提供（Chunk 3 实现）。
+ * 内容层：博客由 posts.json，项目/作品由 JSON 提供。
  */
 import postsData from '../data/posts.json'
+import projectsData from '../data/projects.json'
+import worksData from '../data/works.json'
 
 const posts = postsData.posts || []
+const projects = Array.isArray(projectsData) ? projectsData : []
+const works = Array.isArray(worksData) ? worksData : []
 
 export function getPosts() {
   return posts
@@ -12,4 +15,12 @@ export function getPosts() {
 
 export function getPostBySlug(slug) {
   return posts.find((p) => p.slug === slug) ?? null
+}
+
+export function getProjects() {
+  return projects
+}
+
+export function getWorks() {
+  return works
 }
