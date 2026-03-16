@@ -39,9 +39,9 @@
   --space-lg: calc(var(--space-unit) * 8);
   --space-xl: calc(var(--space-unit) * 12);
   --space-2xl: calc(var(--space-unit) * 18);
-  /* 内容区最大宽度（稍宽一点，内容更饱满） */
-  --content-max: 64rem;
-  --content-narrow: 48rem;
+  /* 内容区最大宽度（约原 3 倍） */
+  --content-max: 192rem;
+  --content-narrow: 144rem;
   /* 圆角与阴影 */
   --radius-sm: 6px;
   --radius-md: 10px;
