@@ -27,7 +27,7 @@ const blogPosts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.va
       </div>
     </SectionBlock>
     <SectionBlock title="作品" ctaLink={`${base}works/`} ctaText="查看全部">
-      <div class="card-grid">
+      <div class="card-grid card-grid--works">
         {works.map((entry) => (
           <Card title={entry.data.title} description={entry.data.description} href={`${base}works/${entry.id}/`} />
         ))}
@@ -76,6 +76,12 @@ const blogPosts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.va
     display: grid;
     gap: var(--space-sm);
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+  .card-grid--works {
+    grid-template-columns: repeat(auto-fill, minmax(min(12rem, 100%), 1fr));
+  }
+  .card-grid--works :global(.card) {
+    min-width: 0;
   }
   .section-block {
     animation: fadeInUp 0.55s ease both;
